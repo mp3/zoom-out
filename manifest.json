@@ -1,0 +1,31 @@
+{
+  "name": "Zoom Out",
+  "description": "Automatically closes Zoom meeting tab",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "homepage_url": "https://github.com/mp3/zoom-out",
+  "icons": {
+    "16": "icons/icon-128.png",
+    "48": "icons/icon-128.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": [],
+  "background": {
+    "scripts": [
+      "src/background.js" 
+    ] 
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": [
+        "*://*.zoom.us/j/*",
+        "*://*.zoom.us/s/*",
+        "*://*.zoom.us/postattendee*"
+      ],
+      "js": [
+        "src/content.js"
+      ]
+    }
+  ]
+}
